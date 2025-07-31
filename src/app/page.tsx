@@ -1,18 +1,11 @@
 'use client';
 
-import Image from "next/image";
-import Link from "next/link"
 import BlurText from "@/app/components/BlurTextEffect/BlurTextEffect";
 import { Navbar } from "@/app/components/Navbar/Navbar";
-import { Button } from "@/app/components/ui/Button"
 import { ImageZoom } from "@/app/components/ImageZoom/ImageZoom"
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
 } from "@/app/components/ui/Card"
 import {
   Tabs,

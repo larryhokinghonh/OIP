@@ -16,7 +16,7 @@ import {
   SheetTitle,
   SheetClose,
 } from "@/app/components/ui/Sheet"
-import { Download, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 
 export function Navbar() {
   // scroll-hide logic

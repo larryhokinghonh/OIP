@@ -68,18 +68,24 @@ export default function Home() {
             <TabsContent value="idea-evolution">
               <Card>
                 <CardContent>
-                  <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+                  <p className="text-2xl font-[400]">Our idea began with deploying light sensors across the Botanic Gardens to collect
+                    artificial light at night data. The first prototype was simple, displaying only sensor
+                    lists and raw data tables. After receiving feedback, we refined the concept into a more
+                    comprehensive monitoring system with an interactive dashboard, map integration, color‑coded
+                    sensor statuses, trend graphs, and detailed sensor pages. This made the platform
+                    more practical for both City Council and conservation groups.</p>
                 </CardContent>
               </Card>
             </TabsContent>
             <TabsContent value="final-design">
               <Card>
                 <CardContent>
-                  <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                  <p className="text-2xl font-[400]">The final design is a high‑fidelity monitoring platform that provides both City Council and
+                    conservation groups with clear insights into artificial light at night within the Botanic Gardens.
+                    It features a central dashboard with live data, a map showing sensor deployment, colour‑coded sensor
+                    statuses, and detailed sensor pages with graphs and notifications. This system transforms raw light
+                    readings into an accessible tool that supports evidence‑based decisions while safeguarding biodiversity. </p>
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
                 </CardContent>
               </Card>
             </TabsContent>

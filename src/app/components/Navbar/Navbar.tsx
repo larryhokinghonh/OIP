@@ -20,15 +20,14 @@ import {
 } from "@/app/components/ui/Sheet"
 import { Menu, X } from "lucide-react"
 
-export function Navbar() {
+export function Navbar({ isHomePage }: { isHomePage: boolean }) {
   // scroll-hide logic
   const [hidden, setHidden] = useState(false)
   const [forceVisible, setForceVisible] = useState(false)
   const lastScrollY = useRef(0)
   // background toggle logic
   const [isTop, setIsTop] = useState(true)
-  const [isReflectionsOpen, setIsReflectionsOpen] = useState(false);
-
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +40,8 @@ export function Navbar() {
       } else {
         setIsTop(false)
         // hide on scroll down, but not on scroll up
-        if (scrollingDown && y > 50) {
+        // Don't hide if dropdown is open
+        if (scrollingDown && y > 50 && !isDropdownOpen) {
           setHidden(true)
         }
       }
@@ -50,8 +50,8 @@ export function Navbar() {
     }
 
     const handleMouseMove = (e: MouseEvent) => {
-      // show navbar when mouse is near top of screen
-      setForceVisible(e.clientY < 100)
+      // show navbar when mouse is near top of screen or dropdown is open
+      setForceVisible(e.clientY < 100 || isDropdownOpen)
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true })
@@ -61,7 +61,7 @@ export function Navbar() {
       window.removeEventListener("scroll", handleScroll)
       window.removeEventListener("mousemove", handleMouseMove)
     }
-  }, [])
+  }, [isDropdownOpen])
 
   // mix of both hrefs (full links) and ids (in-page anchors)
   const desktopItems = [
@@ -99,58 +99,57 @@ export function Navbar() {
       <div className="max-w-screen-xl mx-auto px-4 py-8 flex items-center justify-center">
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center space-x-8">
-          <NavigationMenu>
+          <NavigationMenu viewport={false}>
             <NavigationMenuList className="flex space-x-8">
-              {desktopItems.map((item) => {
-                const href = item.href ?? `#${item.id}`
-                if (item.subItems) {
-                  return (
-                    <div
-                      key={href}
-                      className="relative"
-                      onMouseEnter={() => setIsReflectionsOpen(true)}
-                      onMouseLeave={() => setIsReflectionsOpen(false)}
-                    >
-                      <NavigationMenuItem>
-                        <Link
-                          href={href}
-                          className="text-white px-2 py-1 text-xl font-[700]"
-                        >
-                          {item.label}
-                        </Link>
-                      </NavigationMenuItem>
-                      {isReflectionsOpen && (
-                        <div className="absolute left-0 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
-                          <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                            {item.subItems.map((subItem) => (
-                              <Link
-                                key={subItem.href}
-                                href={subItem.href}
-                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                role="menuitem"
-                              >
-                                {subItem.label}
-                              </Link>
-                            ))}
-                          </div>
+              {desktopItems.map((item) => (
+                <NavigationMenuItem key={item.label}>
+                  {item.subItems ? (
+                    <>
+                      <NavigationMenuTrigger
+                        className="text-white px-3 py-2 text-xl font-[700] bg-transparent hover:bg-white hover:text-black focus:bg-white focus:text-black data-[state=open]:bg-white data-[state=open]:text-black border-none shadow-none rounded-md transition-colors"
+                        onMouseEnter={() => setIsDropdownOpen(true)}
+                        onMouseLeave={() => setIsDropdownOpen(false)}
+                        onClick={() => {
+                          const href = item.href ?? (isHomePage ? `#${item.id}` : `/#${item.id}`)
+                          if (href.startsWith('#')) {
+                            document.getElementById(item.id!)?.scrollIntoView({ behavior: 'smooth' })
+                          } else {
+                            window.location.href = href
+                          }
+                        }}
+                      >
+                        {item.label}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent 
+                        className="min-w-[200px] bg-white border border-gray-200 rounded-md shadow-lg p-0"
+                        onMouseEnter={() => setIsDropdownOpen(true)}
+                        onMouseLeave={() => setIsDropdownOpen(false)}
+                      >
+                        <div className="py-2">
+                          {item.subItems.map((subItem) => (
+                            <Link
+                              key={subItem.href}
+                              href={subItem.href}
+                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                            >
+                              {subItem.label}
+                            </Link>
+                          ))}
                         </div>
-                      )}
-                    </div>
-                  )
-                }
-                return (
-                  <NavigationMenuItem key={href}>
+                      </NavigationMenuContent>
+                    </>
+                  ) : (
                     <NavigationMenuLink asChild>
                       <Link
-                        href={href}
-                        className="text-white px-2 py-1 text-xl font-[700]"
+                        href={item.href ?? (isHomePage ? `#${item.id}` : `/#${item.id}`)}
+                        className="text-white px-3 py-2 text-xl font-[700] hover:bg-white hover:text-black rounded-md transition-colors"
                       >
                         {item.label}
                       </Link>
                     </NavigationMenuLink>
-                  </NavigationMenuItem>
-                )
-              })}
+                  )}
+                </NavigationMenuItem>
+              ))}
             </NavigationMenuList>
           </NavigationMenu>
         </nav>
@@ -176,7 +175,7 @@ export function Navbar() {
               </SheetHeader>
               <div className="mt-6 space-y-4">
                 {mobileItems.map((item) => {
-                  const href = item.href ?? `#${item.id}`
+                  const href = item.href ?? (isHomePage ? `#${item.id}` : `/#${item.id}`)
                   if (item.subItems) {
                     return (
                       <div key={href}>

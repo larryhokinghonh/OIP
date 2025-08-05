@@ -1,7 +1,7 @@
 'use client';
 
 import BlurText from "@/app/components/BlurTextEffect/BlurTextEffect";
-import { Navbar } from "@/app/components/Navbar/Navbar";
+import { Layout } from "@/app/components/Layout/Layout";
 import { ImageZoom } from "@/app/components/ImageZoom/ImageZoom"
 import Reflections from "@/app/components/Reflections/Reflections";
 import {
@@ -18,13 +18,9 @@ import {
 
 export default function Home() {
   return (
-    <>
-      <section className="flex bg-[#1A2A80] justify-center h-screen">
-        <div>
-          <Navbar />
-        </div>
-
-        <div className="flex flex-col text-white font-[800] tracking-wider m-auto items-center text-center">
+    <Layout>
+      <section className="flex justify-center min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white transition-all duration-1000">
+        <div className="flex flex-col font-[800] tracking-wider m-auto items-center text-center">
           <BlurText
             text="Light Pollution"
             delay={50}
@@ -42,9 +38,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col bg-[#3B38A0] space-y-8 items-center h-screen" id="design-journey">
+      <section className="flex flex-col space-y-8 items-center min-h-screen bg-gradient-to-br from-blue-900 via-slate-800 to-gray-800 text-white transition-all duration-1000" id="design-journey">
         <div className="pt-16">
-          <p className="text-white text-6xl font-[700]">Design Journey</p>
+          <p className="text-6xl font-[700]">Design Journey</p>
         </div>
 
         <div className="flex mx-64 flex-col gap-6">
@@ -91,10 +87,10 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapi
         </div>
       </section>
 
-      <section className="flex bg-[#7A85C1] justify-center h-screen" id="poster">
+      <section className="flex justify-center min-h-screen bg-gradient-to-br from-gray-800 via-blue-800 to-slate-700 text-white transition-all duration-1000" id="poster">
         <div className="flex flex-row space-x-16 items-center mx-60">
           <div className="">
-            <p className="text-white text-6xl font-[700]">Our Poster</p>
+            <p className="text-6xl font-[700]">Our Poster</p>
           </div>
 
           <div className="relative">
@@ -106,7 +102,7 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapi
         </div>
       </section>
 
-      <section className="flex flex-row bg-[#B2B0E8] items-center justify-center h-screen" id="team">
+      <section className="flex flex-row items-center justify-center min-h-screen bg-gradient-to-br from-indigo-900 via-blue-800 to-slate-800 text-white transition-all duration-1000" id="team">
         <div className="flex flex-col">
           <div className="flex bg-white rounded-lg">
             <p>test</p>
@@ -136,6 +132,6 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapi
       </section>
 
       <Reflections />
-    </>
+    </Layout>
   );
 }

@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+/.clinerules/
+/cline_docs/
+
 # production
 /build
 

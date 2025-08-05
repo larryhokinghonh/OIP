@@ -3,6 +3,7 @@
 import BlurText from "@/app/components/BlurTextEffect/BlurTextEffect";
 import { Navbar } from "@/app/components/Navbar/Navbar";
 import { ImageZoom } from "@/app/components/ImageZoom/ImageZoom"
+import Reflections from "@/app/components/Reflections/Reflections";
 import {
   Card,
   CardContent,
@@ -133,6 +134,8 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapi
           </div>
         </div>
       </section>
+
+      <Reflections />
     </>
   );
 }

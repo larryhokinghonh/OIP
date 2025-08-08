@@ -14,6 +14,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/app/components/ui/Tabs"
+import { getAssetPath } from "@/lib/basePath";
 
 
 export default function Home() {
@@ -131,7 +132,7 @@ export default function Home() {
 
           <div className="relative">
             <ImageZoom
-              src="/poster.png"
+              src={getAssetPath("/poster.png")}
               alt="Conference Poster on Light Pollution"
             />
           </div>
@@ -150,7 +151,7 @@ export default function Home() {
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300">
             <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white/20">
               <img 
-                src="/images/team/josh.jpg" 
+                src={getAssetPath("/images/team/josh.jpg")} 
                 alt="Josh" 
                 className="w-full h-full object-cover"
               />
@@ -172,7 +173,7 @@ export default function Home() {
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300">
             <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white/20">
               <img 
-                src="/images/team/kenny.jpg" 
+                src={getAssetPath("/images/team/kenny.jpg")} 
                 alt="Kenny" 
                 className="w-full h-full object-cover"
               />
@@ -194,7 +195,7 @@ export default function Home() {
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300">
             <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white/20">
               <img 
-                src="/images/team/larry.jpg" 
+                src={getAssetPath("/images/team/larry.jpg")} 
                 alt="Larry" 
                 className="w-full h-full object-cover"
               />
@@ -216,7 +217,7 @@ export default function Home() {
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300">
             <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white/20">
               <img 
-                src="/images/team/liqin.jpg" 
+                src={getAssetPath("/images/team/liqin.jpg")} 
                 alt="Liqin" 
                 className="w-full h-full object-cover"
               />
@@ -238,7 +239,7 @@ export default function Home() {
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300">
             <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white/20">
               <img 
-                src="/images/team/marcus.jpg" 
+                src={getAssetPath("/images/team/marcus.jpg")} 
                 alt="Marcus" 
                 className="w-full h-full object-cover"
               />
@@ -260,7 +261,7 @@ export default function Home() {
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300">
             <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white/20">
               <img 
-                src="/images/team/teren.jpg" 
+                src={getAssetPath("/images/team/teren.jpg")} 
                 alt="Teren" 
                 className="w-full h-full object-cover"
               />

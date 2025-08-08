@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Card } from '@/app/components/ui/Card';
 import { ImageCarousel } from '@/app/components/ImageCarousel/ImageCarousel';
 import { ImageViewer } from '@/app/components/ImageViewer/ImageViewer';
+import { getAssetPath } from '@/lib/basePath';
 
 interface TimelineEntry {
   id: number;
@@ -51,7 +52,7 @@ Additionally, we started to conduct research on existing solutions for light pol
 The report provided some insights into how Artificial Light At Night (ALAN) may affect bats activity. We mainly focused on the sensor placement and coverage of the light sensors used in the study. We discussed potential improvements to their sensor positioning in order to obtain a more comprehensive light measurement. The report also outlined several limitations in their findings, particularly in data collection and coverage, which we aim to address in our project. We decided to improve on their solution and use their methods as a baseline for our solution.`,
     category: "Week 1",
     images: [
-      "/images/daily-briefs/July_24.png",
+      getAssetPath("/images/daily-briefs/July_24.png"),
     ]
   },
   {
@@ -85,11 +86,11 @@ We started with user stories:
 At this stage we made use of simple sketches, establishing the flow and iterated quickly amongst ourselves getting feedback within the team and the TAs and iterating through designs to get a clearer design plan. In our case, in our dashboard design we test out flows on how stakeholders would interact with the notifications, sensors, map view, and overview.`,
     category: "Week 2",
     images: [
-      "/images/daily-briefs/29_1.jpg",
-      "/images/daily-briefs/29_2.jpg",
-      "/images/daily-briefs/29_3.jpg",
-      "/images/daily-briefs/29_4.jpg",
-      "/images/daily-briefs/29_5.jpg",
+      getAssetPath("/images/daily-briefs/29_1.jpg"),
+      getAssetPath("/images/daily-briefs/29_2.jpg"),
+      getAssetPath("/images/daily-briefs/29_3.jpg"),
+      getAssetPath("/images/daily-briefs/29_4.jpg"),
+      getAssetPath("/images/daily-briefs/29_5.jpg"),
     ]
   },
   {
@@ -114,8 +115,8 @@ At this stage we made use of simple sketches, establishing the flow and iterated
   We also started planning the content for the second video pitch submission, ensuring the feedback given in the first submission is properly addressed. We were supposed to have a meeting with the stakeholder this week to check in if our proposed solution would address the needs of the stakeholder but it was postponed to the next week, leaving us unsure whether to proceed with the design changes or put it on hold till the meeting and feedback was gathered. We needed the feedback as content in the weekly reflection video submission based on the grading rubrics`,
     category: "Week 2",
     images: [
-      "/images/daily-briefs/30_1.jpg",
-      "/images/daily-briefs/30_2.jpg"
+      getAssetPath("/images/daily-briefs/30_1.jpg"),
+      getAssetPath("/images/daily-briefs/30_2.jpg")
     ]
   },
   {
@@ -128,10 +129,10 @@ We got our schoolmates to do a think aloud using our Mid-fi prototype and based 
 `,
     category: "Week 2",
     images: [
-      "/images/daily-briefs/31_1.jpg",
-      "/images/daily-briefs/31_2.jpg",
-      "/images/daily-briefs/31_3.jpg",
-      "/images/daily-briefs/31_4.jpg"
+      getAssetPath("/images/daily-briefs/31_1.jpg"),
+      getAssetPath("/images/daily-briefs/31_2.jpg"),
+      getAssetPath("/images/daily-briefs/31_3.jpg"),
+      getAssetPath("/images/daily-briefs/31_4.jpg")
     ]
   },
   {

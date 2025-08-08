@@ -11,6 +11,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/app/components/ui/Tabs"
+import { getAssetPath } from "@/lib/basePath";
 
 export default function PartnerMeetingReflections() {
   return (
@@ -72,7 +73,7 @@ export default function PartnerMeetingReflections() {
                       
                       <div className="flex justify-center mt-6">
                         <img 
-                          src="/images/reflections/team_call.jpg" 
+                          src={getAssetPath("/images/reflections/team_call.jpg")} 
                           alt="Team call with partner Chrissy during second meeting"
                           className="rounded-lg shadow-lg max-w-full h-auto"
                         />

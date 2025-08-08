@@ -2,6 +2,7 @@ import { Layout } from "@/app/components/Layout/Layout";
 import { Card } from "@/app/components/ui/Card";
 import Image from 'next/image';
 import React from 'react';
+import { getAssetPath } from "@/lib/basePath";
 
 const ProudPage = () => {
   return (
@@ -22,7 +23,7 @@ const ProudPage = () => {
             <div className="flex justify-center mb-8">
               <div className="relative w-full max-w-2xl">
                 <Image
-                  src="/images/proud/team_photo.jpg"
+                  src={getAssetPath("/images/proud/team_photo.jpg")}
                   alt="Our team at the University of Glasgow"
                   width={800}
                   height={600}

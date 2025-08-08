@@ -25,15 +25,17 @@ const WeeklyPitchVideosPage = () => {
                 <p className="text-gray-300">Initial project presentation and research findings</p>
               </div>
               
-              <div className="aspect-video bg-black/30 rounded-lg border border-white/20 flex items-center justify-center mb-4">
-                <div className="text-center p-8">
-                  <div className="text-6xl mb-4">🎥</div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">Week 1 Pitch Video</h3>
-                  <p className="text-gray-300 mb-4">Video file too large for GitHub hosting</p>
-                  <p className="text-sm text-gray-400">
-                    Contact team for access to full presentation video
-                  </p>
-                </div>
+              <div className="aspect-video bg-black/30 rounded-lg border border-white/20 overflow-hidden mb-4">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/pGY0QrDpOYc"
+                  title="Week 1 Pitch Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="rounded-lg"
+                ></iframe>
               </div>
               
               <div className="text-sm text-gray-400">
@@ -48,15 +50,17 @@ const WeeklyPitchVideosPage = () => {
                 <p className="text-gray-300">Progress update and design development</p>
               </div>
               
-              <div className="aspect-video bg-black/30 rounded-lg border border-white/20 flex items-center justify-center mb-4">
-                <div className="text-center p-8">
-                  <div className="text-6xl mb-4">🎥</div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">Week 2 Pitch Video</h3>
-                  <p className="text-gray-300 mb-4">Video file too large for GitHub hosting</p>
-                  <p className="text-sm text-gray-400">
-                    Contact team for access to full presentation video
-                  </p>
-                </div>
+              <div className="aspect-video bg-black/30 rounded-lg border border-white/20 overflow-hidden mb-4">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/YiCJtCtht90"
+                  title="Week 2 Pitch Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="rounded-lg"
+                ></iframe>
               </div>
               
               <div className="text-sm text-gray-400">

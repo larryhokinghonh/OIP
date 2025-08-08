@@ -64,7 +64,12 @@ export function Navbar({ isHomePage }: { isHomePage: boolean }) {
   }, [isDropdownOpen])
 
   // mix of both hrefs (full links) and ids (in-page anchors)
-  const desktopItems = [
+  const desktopItems: Array<{
+    label: string;
+    href?: string;
+    id?: string;
+    subItems?: Array<{ label: string; href: string }>;
+  }> = [
     { label: "Home",           href: "/"             },
     { label: "Design Journey", id:   "design-journey" },
     { label: "Poster",         id:   "poster"         },
@@ -111,11 +116,12 @@ export function Navbar({ isHomePage }: { isHomePage: boolean }) {
                         onMouseEnter={() => setIsDropdownOpen(true)}
                         onMouseLeave={() => setIsDropdownOpen(false)}
                         onClick={() => {
-                          const href = item.href ?? (isHomePage ? `#${item.id}` : `/#${item.id}`)
-                          if (href.startsWith('#')) {
-                            document.getElementById(item.id!)?.scrollIntoView({ behavior: 'smooth' })
-                          } else {
-                            window.location.href = href
+                          if (isHomePage && item.id) {
+                            document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })
+                          } else if (item.id) {
+                            window.location.href = `/#${item.id}`
+                          } else if (item.href) {
+                            window.location.href = item.href
                           }
                         }}
                       >

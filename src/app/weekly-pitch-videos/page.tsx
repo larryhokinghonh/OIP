@@ -29,7 +29,7 @@ const WeeklyPitchVideosPage = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/pGY0QrDpOYc"
+                  src="https://www.youtube.com/embed/YiCJtCtht90"
                   title="Week 1 Pitch Video"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -54,7 +54,7 @@ const WeeklyPitchVideosPage = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/YiCJtCtht90"
+                  src="https://www.youtube.com/embed/pGY0QrDpOYc"
                   title="Week 2 Pitch Video"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

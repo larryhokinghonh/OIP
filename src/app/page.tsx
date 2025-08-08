@@ -1,8 +1,9 @@
 'use client';
 
+import { useState } from "react";
 import BlurText from "@/app/components/BlurTextEffect/BlurTextEffect";
 import { Layout } from "@/app/components/Layout/Layout";
-import { ImageZoom } from "@/app/components/ImageZoom/ImageZoom"
+import { ImageViewer } from "@/app/components/ImageViewer/ImageViewer";
 import Reflections from "@/app/components/Reflections/Reflections";
 import {
   Card,
@@ -18,6 +19,20 @@ import { getAssetPath } from "@/lib/basePath";
 
 
 export default function Home() {
+  const [imageViewerOpen, setImageViewerOpen] = useState(false);
+  const [viewerImages, setViewerImages] = useState<string[]>([]);
+  const [viewerInitialIndex, setViewerInitialIndex] = useState(0);
+
+  const handlePosterClick = () => {
+    setViewerImages([getAssetPath("/poster.png")]);
+    setViewerInitialIndex(0);
+    setImageViewerOpen(true);
+  };
+
+  const closeImageViewer = () => {
+    setImageViewerOpen(false);
+  };
+
   return (
     <Layout>
       <section className="flex justify-center min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white transition-all duration-1000">
@@ -131,9 +146,11 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            <ImageZoom
+            <img
               src={getAssetPath("/poster.png")}
               alt="Conference Poster on Light Pollution"
+              className="cursor-pointer w-[450px] rounded shadow-lg hover:shadow-xl transition-shadow duration-300"
+              onClick={handlePosterClick}
             />
           </div>
         </div>
@@ -280,6 +297,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Image Viewer Modal */}
+      <ImageViewer
+        isOpen={imageViewerOpen}
+        images={viewerImages}
+        initialIndex={viewerInitialIndex}
+        onClose={closeImageViewer}
+      />
     </Layout>
   );
 }

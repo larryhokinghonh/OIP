@@ -26,14 +26,14 @@ const WeeklyPitchVideosPage = () => {
               </div>
               
               <div className="aspect-video bg-black/30 rounded-lg border border-white/20 flex items-center justify-center mb-4">
-                <video 
-                  controls 
-                  className="w-full h-full rounded-lg"
-                >
-                  <source src="/videos/weekly-pitch/week_1.mp4" type="video/mp4" />
-                  <source src="/videos/weekly-pitch/week1.webm" type="video/webm" />
-                  Your browser does not support the video tag.
-                </video>
+                <div className="text-center p-8">
+                  <div className="text-6xl mb-4">🎥</div>
+                  <h3 className="text-xl font-semibold mb-2 text-white">Week 1 Pitch Video</h3>
+                  <p className="text-gray-300 mb-4">Video file too large for GitHub hosting</p>
+                  <p className="text-sm text-gray-400">
+                    Contact team for access to full presentation video
+                  </p>
+                </div>
               </div>
               
               <div className="text-sm text-gray-400">
@@ -49,14 +49,14 @@ const WeeklyPitchVideosPage = () => {
               </div>
               
               <div className="aspect-video bg-black/30 rounded-lg border border-white/20 flex items-center justify-center mb-4">
-                <video 
-                  controls 
-                  className="w-full h-full rounded-lg"
-                >
-                  <source src="/videos/weekly-pitch/week_2.mp4" type="video/mp4" />
-                  <source src="/videos/weekly-pitch/week2.webm" type="video/webm" />
-                  Your browser does not support the video tag.
-                </video>
+                <div className="text-center p-8">
+                  <div className="text-6xl mb-4">🎥</div>
+                  <h3 className="text-xl font-semibold mb-2 text-white">Week 2 Pitch Video</h3>
+                  <p className="text-gray-300 mb-4">Video file too large for GitHub hosting</p>
+                  <p className="text-sm text-gray-400">
+                    Contact team for access to full presentation video
+                  </p>
+                </div>
               </div>
               
               <div className="text-sm text-gray-400">

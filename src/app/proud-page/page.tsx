@@ -45,7 +45,7 @@ const ProudPage = () => {
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
               
               {/* Overseas Growth */}
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300 relative">
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300 relative h-full flex flex-col">
                 <div className="absolute -top-3 -left-3 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                   1
                 </div>
@@ -57,7 +57,7 @@ const ProudPage = () => {
               </Card>
 
               {/* Environmental Impact */}
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300 relative">
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300 relative h-full flex flex-col">
                 <div className="absolute -top-3 -left-3 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                   2
                 </div>
@@ -70,7 +70,7 @@ const ProudPage = () => {
               </Card>
 
               {/* Technology Innovation */}
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300 relative">
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300 relative h-full flex flex-col">
                 <div className="absolute -top-3 -left-3 w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                   3
                 </div>
@@ -82,7 +82,7 @@ const ProudPage = () => {
               </Card>
 
               {/* User-Centric Design */}
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300 relative">
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300 relative h-full flex flex-col">
                 <div className="absolute -top-3 -left-3 w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                   4
                 </div>
@@ -94,7 +94,7 @@ const ProudPage = () => {
               </Card>
 
               {/* Sustainable Design */}
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300 relative">
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300 relative h-full flex flex-col">
                 <div className="absolute -top-3 -left-3 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                   5
                 </div>
@@ -106,7 +106,7 @@ const ProudPage = () => {
               </Card>
 
               {/* Collaboration */}
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300 relative">
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300 relative h-full flex flex-col">
                 <div className="absolute -top-3 -left-3 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                   6
                 </div>

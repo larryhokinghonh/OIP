@@ -1,5 +1,6 @@
 // src/components/Navbar/Navbar.tsx
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useState, useEffect, useRef } from "react"
 import { Button } from "@/app/components/ui/Button"
 import {
@@ -21,6 +22,7 @@ import {
 import { Menu, X } from "lucide-react"
 
 export function Navbar({ isHomePage }: { isHomePage: boolean }) {
+  const router = useRouter()
   // scroll-hide logic
   const [hidden, setHidden] = useState(false)
   const [forceVisible, setForceVisible] = useState(false)
@@ -119,9 +121,9 @@ export function Navbar({ isHomePage }: { isHomePage: boolean }) {
                           if (isHomePage && item.id) {
                             document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })
                           } else if (item.id) {
-                            window.location.href = `/#${item.id}`
+                            router.push(`/#${item.id}`)
                           } else if (item.href) {
-                            window.location.href = item.href
+                            router.push(item.href)
                           }
                         }}
                       >

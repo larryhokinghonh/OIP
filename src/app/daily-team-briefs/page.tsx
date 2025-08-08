@@ -1,11 +1,11 @@
 import { Layout } from "@/app/components/Layout/Layout";
-import { Timeline } from "@/app/components/Timeline/Timeline";
+import { TimelineLeftBar } from "@/app/components/Timeline/TimelineLeftBar";
 import React from 'react';
 
 const DailyTeamBriefsPage = () => {
   return (
     <Layout>
-      <Timeline />
+      <TimelineLeftBar />
     </Layout>
   );
 };

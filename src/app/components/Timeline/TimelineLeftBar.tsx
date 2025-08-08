@@ -2,6 +2,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Card } from '@/app/components/ui/Card';
+import { ImageCarousel } from '@/app/components/ImageCarousel/ImageCarousel';
+import { ImageViewer } from '@/app/components/ImageViewer/ImageViewer';
 
 interface TimelineEntry {
   id: number;
@@ -9,6 +11,7 @@ interface TimelineEntry {
   title: string;
   content: string; // Rich content with markdown-like formatting
   category: string;
+  images?: string[]; // Optional array of image URLs
 }
 
 const timelineData: TimelineEntry[] = [
@@ -46,7 +49,10 @@ Additionally, we started to conduct research on existing solutions for light pol
     content: `Today, we started to conduct research about sensors to detect light pollution. To start, we looked through the Bat Monitoring Survey Report from Applied Ecology LTD about the impact of GlasGlow events on local bat activity.
 
 The report provided some insights into how Artificial Light At Night (ALAN) may affect bats activity. We mainly focused on the sensor placement and coverage of the light sensors used in the study. We discussed potential improvements to their sensor positioning in order to obtain a more comprehensive light measurement. The report also outlined several limitations in their findings, particularly in data collection and coverage, which we aim to address in our project. We decided to improve on their solution and use their methods as a baseline for our solution.`,
-    category: "Week 1"
+    category: "Week 1",
+    images: [
+      "/images/daily-briefs/July_24.png",
+    ]
   },
   {
     id: 4,
@@ -77,7 +83,14 @@ We started with user stories:
 • "As a field researcher, I want to compare ALAN readings of all sensors between a data range to find ALAN impacted areas."
 
 At this stage we made use of simple sketches, establishing the flow and iterated quickly amongst ourselves getting feedback within the team and the TAs and iterating through designs to get a clearer design plan. In our case, in our dashboard design we test out flows on how stakeholders would interact with the notifications, sensors, map view, and overview.`,
-    category: "Week 2"
+    category: "Week 2",
+    images: [
+      "/images/daily-briefs/29_1.jpg",
+      "/images/daily-briefs/29_2.jpg",
+      "/images/daily-briefs/29_3.jpg",
+      "/images/daily-briefs/29_4.jpg",
+      "/images/daily-briefs/29_5.jpg",
+    ]
   },
   {
     id: 7,
@@ -99,7 +112,11 @@ At this stage we made use of simple sketches, establishing the flow and iterated
   
 
   We also started planning the content for the second video pitch submission, ensuring the feedback given in the first submission is properly addressed. We were supposed to have a meeting with the stakeholder this week to check in if our proposed solution would address the needs of the stakeholder but it was postponed to the next week, leaving us unsure whether to proceed with the design changes or put it on hold till the meeting and feedback was gathered. We needed the feedback as content in the weekly reflection video submission based on the grading rubrics`,
-    category: "Week 2"
+    category: "Week 2",
+    images: [
+      "/images/daily-briefs/30_1.jpg",
+      "/images/daily-briefs/30_2.jpg"
+    ]
   },
   {
     id: 8,
@@ -109,7 +126,13 @@ At this stage we made use of simple sketches, establishing the flow and iterated
 
 We got our schoolmates to do a think aloud using our Mid-fi prototype and based on the observation of the think aloud, we made changes and developed the high-fi product. We finalised our high-fidelity prototype, equipping it with more detailed static elements. We also expanded the content of the website, adding clearer visual elements like graphs, colour coding, and more information to improve data presentation.
 `,
-    category: "Week 2"
+    category: "Week 2",
+    images: [
+      "/images/daily-briefs/31_1.jpg",
+      "/images/daily-briefs/31_2.jpg",
+      "/images/daily-briefs/31_3.jpg",
+      "/images/daily-briefs/31_4.jpg"
+    ]
   },
   {
     id: 9,
@@ -136,7 +159,7 @@ We got our schoolmates to do a think aloud using our Mid-fi prototype and based 
     id: 12,
     date: "August 6th",
     title: "Website Design",
-    content: `Developed detailed implementation roadmap with timelines, resources, and success metrics.`,
+    content: `Today, we started implementing the design and user experience of the website. For the design, we thought that of having a simple yet clean experience that will be able to showcase our thoughts and design thinking processes.\n For the user experience, we wanted to make a seamless journey for the users to view our project. Due to our past experience of creating websites and mobile applications before, we decided to pool together our knowledge. We made sure that all the buttons are intuitive, knowing where to go next. For example, we made use of common symbols and icons used in the majority of websites. We also made sure that every element is of the correct size, the easiest to view while still making the website aesthetic. After completing our website, we decided to do a user testing for the website tomorrow.`,
     category: "Week 3"
   },
   {
@@ -269,8 +292,21 @@ const parseContent = (content: string) => {
 
 export const TimelineLeftBar: React.FC = () => {
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
+  const [imageViewerOpen, setImageViewerOpen] = useState(false);
+  const [viewerImages, setViewerImages] = useState<string[]>([]);
+  const [viewerInitialIndex, setViewerInitialIndex] = useState(0);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
+
+  const handleImageClick = (imageUrl: string, index: number, allImages: string[]) => {
+    setViewerImages(allImages);
+    setViewerInitialIndex(index);
+    setImageViewerOpen(true);
+  };
+
+  const closeImageViewer = () => {
+    setImageViewerOpen(false);
+  };
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -306,44 +342,19 @@ export const TimelineLeftBar: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 pt-12">
-          <h1 className="text-5xl font-bold text-white mb-4">Daily Team Briefs - Test Layout</h1>
-          <p className="text-xl text-blue-200">Project Timeline & Progress Updates (Left Bar Design)</p>
+          <h1 className="text-5xl font-bold text-white mb-4">Daily Team Briefs</h1>
+          <p className="text-xl text-blue-200">Project Timeline & Progress Updates</p>
         </div>
 
         <div ref={timelineRef} className="relative flex">
           {/* Left timeline bar */}
-          <div className="flex-shrink-0 w-20 relative">
+          <div className="flex-shrink-0 w-24 relative">
             {/* Vertical line */}
-            <div className="absolute left-8 top-0 w-1 bg-gradient-to-b from-blue-400 via-purple-500 to-pink-500" style={{height: 'calc(100% - 60px)'}}></div>
-            
-            {/* Timeline dots */}
-            {timelineData.map((entry, index) => {
-              const isVisible = visibleItems.has(entry.id);
-              return (
-                <div
-                  key={entry.id}
-                  className="absolute left-5 flex flex-col items-center"
-                  style={{ top: `${index * 400 + 60}px` }}
-                >
-                  <div className={`
-                    w-6 h-6 rounded-full border-4 border-white shadow-lg z-10
-                    transform transition-all duration-500 ease-out
-                    ${isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}
-                    ${getCategoryColor(entry.category)}
-                  `}>
-                  </div>
-                  
-                  {/* Date label */}
-                  <div className="mt-2 text-xs text-blue-300 font-medium text-center whitespace-nowrap transform -rotate-90 origin-center">
-                    {entry.date}
-                  </div>
-                </div>
-              );
-            })}
+            <div className="absolute left-12 top-0 w-1 bg-gradient-to-b from-blue-400 via-purple-500 to-pink-500" style={{height: 'calc(100% - 60px)'}}></div>
           </div>
 
           {/* Content area */}
-          <div className="flex-1 pl-8">
+          <div className="flex-1 pl-4">
             <div className="space-y-16">
               {timelineData.map((entry, index) => {
                 const isVisible = visibleItems.has(entry.id);
@@ -352,9 +363,15 @@ export const TimelineLeftBar: React.FC = () => {
                   <div
                     key={entry.id}
                     data-id={entry.id}
-                    className="timeline-item"
-                    style={{ minHeight: '350px' }}
+                    className="timeline-item relative flex"
                   >
+                    {/* Date aligned with card */}
+                    <div className="absolute -left-20 top-8 flex flex-col items-center">
+                      <div className="text-sm text-blue-300 font-medium whitespace-nowrap transform -rotate-90 origin-center mb-8">
+                        {entry.date}
+                      </div>
+                      <div className={`w-3 h-3 rounded-full ${getCategoryColor(entry.category)}`}></div>
+                    </div>
                     <Card className={`
                       p-8 bg-white/10 backdrop-blur-sm border border-white/20 
                       transform transition-all duration-700 ease-out
@@ -380,6 +397,14 @@ export const TimelineLeftBar: React.FC = () => {
                         {parseContent(entry.content)}
                       </div>
                       
+                      {/* Image carousel */}
+                      {entry.images && entry.images.length > 0 && (
+                        <ImageCarousel
+                          images={entry.images}
+                          onImageClick={(imageUrl, index) => handleImageClick(imageUrl, index, entry.images!)}
+                        />
+                      )}
+                      
                       <div className="text-sm text-blue-300 font-medium bg-blue-900/30 px-3 py-1 rounded-full inline-block">
                         {entry.date}
                       </div>
@@ -398,6 +423,14 @@ export const TimelineLeftBar: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Image Viewer Modal */}
+      <ImageViewer
+        isOpen={imageViewerOpen}
+        images={viewerImages}
+        initialIndex={viewerInitialIndex}
+        onClose={closeImageViewer}
+      />
     </div>
   );
 };

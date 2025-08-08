@@ -74,6 +74,7 @@ export function Navbar({ isHomePage }: { isHomePage: boolean }) {
       subItems: [
         { label: "Weekly Pitch Videos", href: "/weekly-pitch-videos" },
         { label: "Daily Team Briefs", href: "/daily-team-briefs" },
+        { label: "Partner Meeting Reflections", href: "/partner-meeting-reflections" },
         { label: "Proud Page", href: "/proud-page" },
       ],
     },
